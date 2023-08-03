@@ -1,21 +1,21 @@
 #!/usr/bin/python3
 """
-    This defines a function that determines if a number of lists of lists can be
+    A function that determines if a number of lists of lists can be
     opened by keys whose value is the number of the box
 """
 
-
 def canUnlockAll(boxes):
-    num_boxes = len(boxes)
-    visited = [False] * num_boxes
-    visited[0] = True
+    """This determines if the boxes (lists of lists) can be unlocked"""
+    position = 0
+    unlocked = {}
 
-    queue = [0]
-    while queue:
-        current_box = queue.pop(0)
-        for key in boxes[current_box]:
-            if not visited[key]:
-                visited[key] = True
-                queue.append(key)
-
-    return all(visited)
+    for box in boxes:
+        if len(box) == 0 or position == 0:
+            unlocked[position] = "now_unlocked"
+        for key in box:
+            if key < len(boxes) and key != position:
+                unlocked[key] = key
+        if len(unlocked) == len(boxes):
+            return True
+        position += 1
+    return False
