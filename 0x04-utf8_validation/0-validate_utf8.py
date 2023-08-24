@@ -8,9 +8,8 @@ def validUTF8(data):
     """
     number_bytes = 0
 
-    point_1 = 1 << 7
-    point_k2 = 1 << 6
-
+    mask_1 = 1 << 7
+    mask_2 = 1 << 6
 
     for i in data:
 
@@ -29,8 +28,7 @@ def validUTF8(data):
                 return False
 
         else:
-            if not (i & point_1 and not (i & point_2)):
-
+            if not (i & mask_1 and not (i & mask_2)):
                 return False
 
         number_bytes -= 1
@@ -39,4 +37,3 @@ def validUTF8(data):
         return True
 
     return False
-
