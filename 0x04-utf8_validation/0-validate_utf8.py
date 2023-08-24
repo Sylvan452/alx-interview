@@ -3,7 +3,7 @@
 
 
 def validUTF8(data):
-    """Determines if a given data set
+    """Checks if a data set
     represents a valid utf-8 encoding
     """
     number_bytes = 0
