@@ -24,4 +24,3 @@ if (process.argv.length > 2) {
       console.error(error);
     });
 }
-
